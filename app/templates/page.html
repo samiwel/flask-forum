@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    Hello world. Welcome to {{ sitename }}.
+
+    <div class="container">
+        <table>
+            <tbody>
+        {% for group in data %}
+            <tr class="section"><td colspan="3">{{ group.category | capitalize }}</td></tr>
+                <tr class="thead">
+                    <td class="th">Name</td>
+                    <td class="th">Threads</td>
+                    <td class="th">Last update</td>
+                </tr>
+                {% for forum in group.forums %}
+                    <tr>
+                        <td><a href="#">{{ forum.name }}</a>{% if forum.description %}<br/>
+                            <span class="description">{{ forum.description }}</span>{% endif %}</td>
+                        <td>{{ forum.threads }}</td>
+                        <td>{{ forum.latest.user }} on {{ forum.latest.timestamp.strftime('%d/%m/%Y') }}
+                            at {{ forum.latest.timestamp.strftime('%H:%M') }}</td>
+                    </tr>
+                {% endfor %}
+
+        {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+{% endblock %}
