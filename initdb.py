@@ -1,10 +1,11 @@
-from app import db, create_app
+from app import create_app
 from app.models import Category, Forum
 
 
 def init_db():
     app = create_app()
     with app.app_context():
+        from app.database import db
         db.drop_all()
         db.create_all()
 

@@ -1,9 +1,18 @@
-<header class="is-flex is-justify-content-space-between is-align-items-center">
-<h1 class="title">Zero1</h1>
+<header>
+    <div class="container">
+    <a href="/">
+<h1>Forums</h1>
+        </a>
 <nav>
     <ul class="is-flex  is-align-items-center">
-        <li><a href="#">Sign In</a></li>
-        <li><a href="#" class="button is-link">Sign Up</a></li>
+        {% if not session['user_id'] %}
+        <li><a href="/signin">Sign In</a></li>
+        <li><a href="/signup" class="ui button">Sign Up</a></li>
+            {%  else %}
+            <li><a href="/logout" class="ui button">Logout</a></li>
+        {% endif %}
+
     </ul>
 </nav>
+        </div>
 </header>

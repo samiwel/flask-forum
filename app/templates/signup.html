@@ -2,9 +2,35 @@
 
 {% block body %}
 
+
+    <div class="ui container">
 <h1>Sign up</h1>
 
-<form action="/signup">
-</form>
+<form action="/signup" method="post" class="ui form">
 
+
+
+    <div class="field">
+    <label>Full name</label>
+     <input placeholder="full name" name="full_name" type="text">
+  </div>
+
+    <div class="field">
+    <label>Email</label>
+     <input placeholder="email" name="email" type="email">
+  </div>
+
+    <div class="field">
+    <label>Choose a username</label>
+     <input placeholder="username" name="username" type="text">
+  </div>
+
+    <div class="field">
+    <label>Set a password</label>
+     <input placeholder="password" name="password" type="password">
+  </div>
+
+    <button type="submit" class="ui button">Sign up</button>
+</form>
+</div>
 {%  endblock %}
