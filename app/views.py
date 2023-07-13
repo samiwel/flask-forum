@@ -74,7 +74,11 @@ def post_signin():
     user = db.session.query(User).filter_by(username=username, password=password).first()
 
     if user:
-        session['user_id'] = user.id
+        session['user'] = {
+            "username": user.username,
+            "real_name": user.real_name,
+            "avatar": user.avatar,
+        }
 
     return redirect(url_for('main.index'))
 
@@ -83,3 +87,11 @@ def post_signin():
 def logout():
     session.clear()
     return redirect(url_for('main.index'))
+
+
+@main_blueprint.route('/profile/<username>', methods=['GET'])
+def profile(username):
+    from .database import db
+
+    user = db.session.query(User).filter_by(username=username).first()
+    return render_template('profile.html', user=user)

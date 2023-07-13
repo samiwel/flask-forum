@@ -4,22 +4,22 @@
 
 
     <div class="ui container">
-<h1>Sign in</h1>
+        <h1>Sign in</h1>
 
-<form action="/signin" method="post" class="ui form">
+        <form action="/signin" method="post" class="ui form">
 
 
-    <div class="field">
-    <label>Username</label>
-     <input placeholder="username" name="username" type="text">
-  </div>
+            <div class="field">
+                <label>Username</label>
+                <input placeholder="username" name="username" type="text" autocomplete="off">
+            </div>
 
-    <div class="field">
-    <label>Password</label>
-     <input placeholder="password" name="password" type="password">
-  </div>
+            <div class="field">
+                <label>Password</label>
+                <input placeholder="password" name="password" type="password">
+            </div>
 
-    <button type="submit" class="ui button">Sign in</button>
-</form>
-</div>
-{%  endblock %}
+            <button type="submit" class="ui button">Sign in</button>
+        </form>
+    </div>
+{% endblock %}
